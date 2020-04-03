@@ -21,7 +21,6 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
     get "/orders/new"
     assert_response :success
     assert_select "legend", "Please Enter Your Details"
-    ➤
     perform_enqueued_jobs do
       post "/orders", params: {
                         order: {
@@ -49,7 +48,6 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
       assert_equal ["dave@example.com"], mail.to
       assert_equal "Sam Ruby <depot@example.com>", mail[:from].value
       assert_equal "Pragmatic Store Order Confirmation", mail.subject
-      ➤
     end
   end
 end
